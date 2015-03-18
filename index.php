@@ -63,7 +63,7 @@
 <html>
 <head>
 	<meta charset='UTF-8'>
-	<title>Ton petit album photo</title>
+	<title>Oh My Pictures !</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
 	<link rel='stylesheet' type='text/css' href='<?php echo URL;?>/css/bootstrap.css' />
@@ -75,29 +75,31 @@
 	<script type="text/javascript" src='<?php echo URL;?>js/jquery-ui-1.10.0.custom.min.js'></script>
 </head>
 
-<body>
-
-<!-- Ici le header et tout ce que vous voulez -->
-<header></header>
-<h1>Bienvenue sur mon album photo</h1>
-
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-<br>
+<header>
+<img src="img/logo_photo.png" alt="Logo" id='Logo'>
 
 <?php
 $URL = URL;
 if(isset($_SESSION['id'])) { 
 	echo "Bonjour ". $_SESSION["login"];
-	echo "<a href='$URL/utilisateur/deconnexion'>Deconnexion</a>";
-	echo "<a href='$URL/photos/upload'>Uploader</a>";
-	echo "<a href='$URL/utilisateur/profil'>Profil</a>";
+	echo "<a href='$URL/utilisateur/deconnexion'>Deconnexion   </a>";
+	echo "<a href='$URL'>Mes photos   </a>";
+	echo "<a href='$URL/utilisateur/profil'>Mes Abonnements   </a>";
+	echo "<form action='$URL/utilisateur/recherche' method='post'><input type='text' placeholder='Recherche...' name='recherche' /><input type='button' value='Ok'/></form>";
 } else {
-	echo "<a href='$URL/utilisateur/inscription'>Inscrivez vous</a>";
-	echo "<br /><a href='$URL/utilisateur/connexion'>connectez vous</a>";
+	echo "<a href='$URL/utilisateur/inscription' id='inscription'>Inscription</a>";
+	echo "<a href='$URL/utilisateur/connexion'>Connexion</a>";
 }
-?></nav>
-<br>
-<br>
+?></header>
+
+<body>
+
+<p id='Titre'>Derniers Ajouts</p>
+
+
+
+
+
 
 <?php
 if(isset($info)){
@@ -109,7 +111,7 @@ if(isset($info)){
 
 
 
-<footer>Le pied de la page</footer>
+<footer>Emeline Bogaert & Fanny Drolez &copy;</footer>
 <!-- Ici le footer et tout ce que vous voulez -->
 
 <div class="modal"><!-- Place at bottom of page --></div>
